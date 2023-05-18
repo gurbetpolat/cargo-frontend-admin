@@ -43,6 +43,7 @@ const Login = () => {
         global.setUser(decoded);
         navigate('/dashboard');
       }
+      /*test*/
     } catch (error) {
       global.setUser(null);
       console.log(error);
