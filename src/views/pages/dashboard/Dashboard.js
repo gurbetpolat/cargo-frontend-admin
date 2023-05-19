@@ -92,6 +92,7 @@ const Dashboard = () => {
                     <CTableHeaderCell>Tam Ad</CTableHeaderCell>
                     <CTableHeaderCell>Rol</CTableHeaderCell>
                     <CTableHeaderCell>Şube/Araç</CTableHeaderCell>
+                    <CTableHeaderCell>Şube/Araç ID</CTableHeaderCell>
                     <CTableHeaderCell>TC</CTableHeaderCell>
                     <CTableHeaderCell>E-Posta</CTableHeaderCell>
                   </CTableRow>
@@ -117,6 +118,9 @@ const Dashboard = () => {
                         <div>
                           {item?.branch?.name || item?.vehicle?.licensePlate}
                         </div>
+                      </CTableDataCell>
+                      <CTableDataCell>
+                        <div>{item?.branch?._id || item?.vehicle?._id}</div>
                       </CTableDataCell>
                       <CTableDataCell>
                         <div>{item?.tcNo}</div>
