@@ -20,8 +20,8 @@ import jwt_decode from 'jwt-decode';
 import request from 'src/request';
 
 const Login = () => {
-  const [email, setEmail] = useState('admin@gmail.com');
-  const [password, setPassword] = useState('123456');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const global = useGlobals();
   const navigate = useNavigate();
 
@@ -43,8 +43,8 @@ const Login = () => {
         global.setUser(decoded);
         navigate('/dashboard');
       }
-      /*test*/
     } catch (error) {
+      alert('Giriş başarısız');
       global.setUser(null);
       console.log(error);
     }
