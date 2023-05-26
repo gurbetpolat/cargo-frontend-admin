@@ -25,7 +25,8 @@ const Login = () => {
   const global = useGlobals();
   const navigate = useNavigate();
 
-  async function handleLogin() {
+  async function handleLogin(e) {
+    e.preventDefault();
     try {
       const result = await request.post('/auth/personel/login', {
         email,
@@ -57,11 +58,8 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm>
-                    <h1>Login</h1>
-                    <p className="text-medium-emphasis">
-                      Sign In to your account
-                    </p>
+                  <CForm onSubmit={handleLogin}>
+                    <h2 className="mb-4">Giriş Yap</h2>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
@@ -85,14 +83,23 @@ const Login = () => {
                       />
                     </CInputGroup>
                     <CRow>
-                      <CCol xs={6}>
-                        <CButton
-                          color="primary"
-                          className="px-4"
-                          onClick={handleLogin}
-                        >
-                          Login
+                      <CCol xs={3}>
+                        <CButton type="submit" color="primary" className="px-4">
+                          Giriş
                         </CButton>
+                      </CCol>
+                      <CCol xs={9} className="d-flex justify-content-end">
+                        <Link
+                          color="link"
+                          className="px-0 mx-2"
+                          target='_blank'
+                          to={
+                            process.env.REACT_APP_API_URL +
+                            '/api/auth/personelForgotPassword'
+                          }
+                        >
+                          Şifremi Unuttum
+                        </Link>
                       </CCol>
                     </CRow>
                   </CForm>
